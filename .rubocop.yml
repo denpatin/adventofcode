@@ -1,0 +1,10 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.2.2
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
