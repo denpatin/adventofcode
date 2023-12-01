@@ -64,12 +64,12 @@ File.open("#{dir_name}/test_day#{formatted_day}.rb", 'w') do |file|
       end
 
       def test_solve1
-        expected = 1
+        expected = nil
         assert_equal expected, @day#{formatted_day}.solve1
       end
 
       def test_solve2
-        expected = 2
+        expected = nil
         assert_equal expected, @day#{formatted_day}.solve2
       end
     end
