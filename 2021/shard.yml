@@ -1,0 +1,15 @@
+name: adventofcode2021
+version: 0.1.0
+
+authors:
+  - Den Patin <den@hey.com>
+
+description: |
+  Problem solving for Advent of Code 2021
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.14.0
+
+license: MIT

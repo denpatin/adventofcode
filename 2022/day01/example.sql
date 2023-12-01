@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS day1_example;
+
+CREATE TABLE day1_example (val INT);
+
+COPY day1_example (val) FROM stdin WITH NULL AS '';
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+\.

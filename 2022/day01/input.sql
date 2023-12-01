@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS day1;
+
+CREATE TABLE day1 (val INT);
+
+COPY day1 (val)
+FROM 'input'
+DELIMITER ','
+WITH NULL AS '';
