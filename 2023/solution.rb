@@ -8,12 +8,28 @@
 # If the input file is a link, it will download the file from the link.
 # Links must end with `/input` to be considered valid.
 # It is assumed that the link is taken from the Advent of Code website.
+# If you want use the link, make sure you are logged in and have a session cookie,
+# which you should save in a file named `.session` in the same directory as this script.
 
 require 'net/http'
 
 class WrongArgumentException < StandardError; end
 class WrongInputFileException < StandardError; end
 class FileNotFoundException < StandardError; end
+
+def get_http_response_with_session(uri)
+  script_dir = File.dirname(__FILE__)
+  session_file = File.join(script_dir, '.session')
+  raise FileNotFoundException, 'Session file not found.' unless File.exist?(session_file)
+
+  session_cookie = File.read(session_file).strip
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = uri.scheme == 'https'
+  request = Net::HTTP::Get.new(uri)
+  request['Cookie'] = "session=#{session_cookie}"
+  http.request(request)
+end
 
 begin
   raise WrongArgumentException unless [1, 2].include?(ARGV.size)
@@ -36,7 +52,7 @@ begin
       raise WrongInputFileException unless input_file.end_with?('/input')
 
       uri = URI.parse(input_file)
-      response = Net::HTTP.get_response(uri)
+      response = get_http_response_with_session(uri)
       raise FileNotFoundException if response.is_a?(Net::HTTPNotFound)
 
       input = response.body
