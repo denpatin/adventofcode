@@ -63,10 +63,11 @@ begin
     input = File.read(input_file)
   end
 
-  day_instance = day_class.new(input)
+  day_instance = day_class.new(input.strip)
 
   puts "Solution 1: #{day_instance.solve1}"
   puts "Solution 2: #{day_instance.solve2}"
+
 rescue WrongArgumentException
   puts 'Usage: ruby solution.rb [day number] [input file or link (optional)]'
 rescue WrongInputFileException
