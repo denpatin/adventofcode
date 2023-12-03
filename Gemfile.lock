@@ -3,6 +3,7 @@ GEM
   specs:
     ast (2.4.2)
     json (2.7.0)
+    kwalify (0.7.2)
     language_server-protocol (3.17.0.3)
     parallel (1.23.0)
     parser (3.2.2.4)
@@ -10,6 +11,10 @@ GEM
       racc
     racc (1.7.3)
     rainbow (3.1.1)
+    reek (6.1.4)
+      kwalify (~> 0.7.0)
+      parser (~> 3.2.0)
+      rainbow (>= 2.0, < 4.0)
     regexp_parser (2.8.2)
     rexml (3.2.6)
     rubocop (1.58.0)
@@ -32,6 +37,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  reek
   rubocop
 
 BUNDLED WITH
